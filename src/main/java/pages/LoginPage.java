@@ -22,6 +22,9 @@ public class LoginPage {
     @FindBy (xpath = "//ul[@class='nav navbar-nav']//li[10]")
     WebElement loggedIn;
 
+    @FindBy (xpath = "//p[@style='color: red;']")
+    WebElement error;
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -42,7 +45,12 @@ public class LoginPage {
     {
         String actual = loggedIn.getText();
         return actual;
+    }
 
+    public String errorMsg()
+    {
+        String errorMsg = error.getText();
+        return errorMsg;
     }
 
 
