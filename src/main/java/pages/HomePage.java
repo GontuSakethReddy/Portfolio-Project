@@ -16,6 +16,9 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='nav navbar-nav']//li[4]")
     WebElement login;
 
+    @FindBy(xpath = "//a[@href='/logout']")
+    WebElement logoutBtn;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -42,13 +45,12 @@ public class HomePage {
         {
             System.out.println("not logged in");
         }
-
-
-
-
-
-
     }
+    public void logout()
+    {
+        logoutBtn.click();
+    }
+
 
 
 }

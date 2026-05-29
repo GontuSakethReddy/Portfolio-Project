@@ -60,5 +60,16 @@ public class AuthSteps {
 
     }
 
+    @When("clicks Logout button")
+    public void clicks_logout_button() {
+        hp.logout();
+    }
+
+    @Then("user is navigated to login page")
+    public void user_is_navigated_to_login_page() {
+
+        Assert.assertTrue(lp.isLoginPageDisplayed());
+    }
+
 
 }

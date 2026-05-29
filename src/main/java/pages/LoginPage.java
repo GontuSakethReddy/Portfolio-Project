@@ -25,6 +25,9 @@ public class LoginPage {
     @FindBy (xpath = "//p[@style='color: red;']")
     WebElement error;
 
+    @FindBy (xpath = "//div[@class='col-sm-4 col-sm-offset-1']")
+    WebElement loginPage;
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -54,6 +57,7 @@ public class LoginPage {
     }
 
 
-
-
+    public boolean isLoginPageDisplayed() {
+        return loginPage.isDisplayed();
+    }
 }
