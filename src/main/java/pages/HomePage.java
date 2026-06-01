@@ -14,10 +14,16 @@ public class HomePage {
     WebDriver driver;
 
     @FindBy(xpath = "//ul[@class='nav navbar-nav']//li[4]")
-    WebElement login;
+    WebElement loginBtn;
 
     @FindBy(xpath = "//a[@href='/logout']")
     WebElement logoutBtn;
+
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//li[2]")
+    WebElement productsBtn;
+
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//li[10]")
+    WebElement afterLogin;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -26,16 +32,12 @@ public class HomePage {
 
     public void loginPage()
     {
-        login.click();
+        loginBtn.click();
     }
-
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']//li[10]")
-    WebElement afterLogin;
 
     public void isLoggedin()
     {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-
         try
         {
             WebElement log = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//ul[@class='nav navbar-nav']//li[10]")));
@@ -50,6 +52,16 @@ public class HomePage {
     {
         logoutBtn.click();
     }
+
+    public void products()
+    {
+        productsBtn.click();
+    }
+
+
+
+
+
 
 
 

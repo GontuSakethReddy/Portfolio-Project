@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.ProductPage;
 import utils.ConfigReader;
 import utils.DriverManager;
 
@@ -16,6 +17,7 @@ public class AuthSteps {
 
     HomePage hp = new HomePage(DriverManager.getDriver());
     LoginPage lp = new LoginPage(DriverManager.getDriver());
+    ProductPage pp = new ProductPage(DriverManager.getDriver());
 
     @Given("the user is on the homepage")
     public void the_user_is_on_the_homepage()
@@ -23,7 +25,6 @@ public class AuthSteps {
         String url = prop.getProperty("url");
         DriverManager.getDriver().get(url);
     }
-
     @When("the user navigates to the Signup\\/Login page")
     public void the_user_navigates_to_the_signup_login_page() {
 
@@ -69,6 +70,16 @@ public class AuthSteps {
     public void user_is_navigated_to_login_page() {
 
         Assert.assertTrue(lp.isLoginPageDisplayed());
+    }
+
+    @When("the user navigates to products page")
+    public void the_user_navigates_to_products_page() {
+       hp.products();
+    }
+
+    @Then("product list should displayed")
+    public void product_list_displayed() {
+        Assert.assertTrue(pp.isDisplayed());
     }
 
 
