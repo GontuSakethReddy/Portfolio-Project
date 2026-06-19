@@ -17,7 +17,6 @@ public class AuthSteps {
 
     HomePage hp = new HomePage(DriverManager.getDriver());
     LoginPage lp = new LoginPage(DriverManager.getDriver());
-    ProductPage pp = new ProductPage(DriverManager.getDriver());
 
     @Given("the user is on the homepage")
     public void the_user_is_on_the_homepage()
@@ -71,16 +70,5 @@ public class AuthSteps {
 
         Assert.assertTrue(lp.isLoginPageDisplayed());
     }
-
-    @When("the user navigates to products page")
-    public void the_user_navigates_to_products_page() {
-       hp.products();
-    }
-
-    @Then("product list should displayed")
-    public void product_list_displayed() {
-        Assert.assertTrue(pp.isDisplayed());
-    }
-
 
 }

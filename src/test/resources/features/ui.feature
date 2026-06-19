@@ -27,7 +27,18 @@ Feature: User Authentication
   Scenario: TC_PROD_01	View all products page
 
     And the user navigates to products page
-    Then product list should displayed
+    Then the product list should displayed
+    And the page title should be "ALL PRODUCTS"
+
+  Scenario: TC_PROD_02	Search for a product
+
+    And the user navigates to products page
+    And search for "Top" is search box
+#    Then the page title should be "SEARCHED PRODUCTS "
+    And Only matching "Top" products are visible
+
+
+
 
 
 
