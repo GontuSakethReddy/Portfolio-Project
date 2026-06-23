@@ -28,6 +28,12 @@ public class ProductPage {
     @FindBy(xpath = "//div[@class='features_items']//div[@class='col-sm-4']//div[@class='productinfo text-center']//p")
     List<WebElement> searchedProducts;
 
+    @FindBy(xpath = "//a[@href='/product_details/1']")
+    WebElement viewProductBtn;
+
+    @FindBy(xpath = "//div[@class='product-information']")
+    WebElement productDetails;
+
     public ProductPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver,this);
@@ -71,6 +77,16 @@ public class ProductPage {
 //        System.out.println(percentage);
 
         Assert.assertTrue(percentage > 80.00, "Fetched products are not relevant to searched product");
+    }
+
+    public void clickViewProduct()
+    {
+        viewProductBtn.click();
+    }
+
+    public boolean productDetailsVisible()
+    {
+        return productDetails.isDisplayed();
     }
 
 

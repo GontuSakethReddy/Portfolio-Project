@@ -1,5 +1,6 @@
 package stepdefs;
 
+import com.sun.source.tree.AssertTree;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
@@ -31,7 +32,6 @@ public class ProductSteps {
     public void the_page_title_should_be(String title) {
         String act = pp.productListTitle();
         Assert.assertEquals(title,act, "Products not showed");
-
     }
 
     @When("search for {string} is search box")
@@ -39,10 +39,19 @@ public class ProductSteps {
         pp.searchForProduct(string);
     }
 
-
     @When("Only matching {string} products are visible")
     public void only_matching_products_are_visible(String productName) {
         pp.isMatching(productName);
+    }
+
+    @When("click {string} on any product")
+    public void click_on_any_product(String string) {
+        pp.clickViewProduct();
+    }
+
+    @Then("product details are visible.")
+    public void product_details_are_visible() {
+        Assert.assertTrue(pp.productDetailsVisible(),"Product details not visisble");
     }
 
 

@@ -37,6 +37,11 @@ Feature: User Authentication
 #    Then the page title should be "SEARCHED PRODUCTS "
     And Only matching "Top" products are visible
 
+  Scenario: TC_PROD_03 View product detail page
+    And the user navigates to products page
+    And search for "Top" is search box
+    And click "View Product" on any product
+    Then product details are visible.
 
 
 
